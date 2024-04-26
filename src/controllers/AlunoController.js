@@ -1,18 +1,6 @@
 const Aluno = require('../models/Aluno')
 
 class AlunoController {
-    // construtor
-    // metodos 
-    // atributos
-
-    async listarTodos(req, res) {
-        try {
-            const alunos = await Aluno.findAll()
-            res.json(alunos)
-        } catch (error) {
-            res.status(500).json({ error: 'Não possível listar os alunos' })
-        }
-    }
 
     async cadastrar(req, res) {
         try {
@@ -47,7 +35,17 @@ class AlunoController {
 
         } catch (error) {
             console.log(error.message)
-            res.status(500).json({ error: 'Não possível cadastrar o aluno' })
+            res.status(500).json({ error: 'Não foi possível cadastrar o aluno' })
+        }
+    }
+
+
+    async listarTodos(req, res) {
+        try {
+            const alunos = await Aluno.findAll()
+            res.json(alunos)
+        } catch (error) {
+            res.status(500).json({ error: 'Não possível listar os alunos' })
         }
     }
 

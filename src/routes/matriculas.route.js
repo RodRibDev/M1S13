@@ -7,5 +7,6 @@ const MatriculaController = require('../controllers/MatriculaController')
 const matriculaRoutes = new Router()
 
 matriculaRoutes.post('/', auth, MatriculaController.cadastrar)
+matriculaRoutes.get('/', auth, MatriculaController.listarTodos)
 
 module.exports = matriculaRoutes
